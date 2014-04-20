@@ -3,9 +3,9 @@
 Plugin Name: RSS Feed Parser Pearlbells
 Plugin URI: http://pearlbells.co.uk/
 Description:  RSS Feed Parser Pearlbells
-Version:  1.0
+Version:  2.0
 Author:Pearlbells
-Author URI: http://pearlbells.co.uk/contact.html
+Author URI: http://pearlbells.co.uk/contact-page
 License: GPL2
 */
 /*
@@ -26,16 +26,10 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 $pearl_rss_feed_parser_class = new pearl_rss_feed_parser_class();
 class pearl_rss_feed_parser_class
 {
-/*	function pearl_rss_feed_parser_css()
-	{
-		$myStyleUrl = WP_PLUGIN_URL . '/pearl_rss_feed_parser/css/pearl_rss_feed_parser_css.css';
-        $myStyleFile = WP_PLUGIN_DIR . '/pearl_rss_feed_parser/css/pearl_rss_feed_parser_css.css';
-        if ( file_exists($myStyleFile) ) 
-		{
-            wp_register_style('myStyleSheets', $myStyleUrl);
-            wp_enqueue_style( 'myStyleSheets');
-        }
-	}*/
+
+        function safely_add_stylesheet() {
+             wp_enqueue_style( 'pearl_rss_feed_parser', plugins_url('css/pearl_rss_feed_parser_css.css', __FILE__) );
+         }
 	
 	function pearl_rss_feed_parser_script()
 	{
@@ -127,7 +121,7 @@ class pearl_rss_feed_parser_class
 	function pearl_rss_feed_parser($atts, $content = null)
 	{		
 		extract( shortcode_atts( array(
-		'rss_url' => 'http://mndcovwarks.org/mysite.rss'		
+		'rss_url' => 'http://static.cricinfo.com/rss/livescores.xml'		
 		), $atts ) );
 		// Get the url
 		//$url = plugins_url();
@@ -200,11 +194,11 @@ class pearl_rss_feed_parser_class
 				{
 				  if($pearl_rss_parser_hyperlink_title == 'yes')
 				  {
-					 $html .= "<a href=".trim($url)." class='pearl_rss_section_title' target='_blank'>". trim($title)."</a><br/>";
+					 $html .= "<a href=".trim($url)." class='pearl_rss_section_title' target='_blank'>". trim($title)."</a>";
 				  }
 				  else
 				  {
-					$html .= "<a href='#' class='pearl_rss_section_title' target='_blank'>". trim($title)."</a><br/>";
+					$html .= "<a href='#' class='pearl_rss_section_title' target='_blank'>". trim($title)."</a>";
 				  }
 				}
 			if($pearl_rss_parser_show_descr =='yes' && $pearl_rss_parser_show_descr != '')
@@ -212,7 +206,7 @@ class pearl_rss_feed_parser_class
 				 $html .= "<p>".trim(substr($desc,0,$pearl_rss_parser_no_of_character))."";
 				if($pearl_rss_parser_show_readmore == 'yes' && $pearl_rss_parser_show_descr != '')
 				{
-					$html .= ". . .<a href='".trim($url)."' class='pearl_rss_read_more' target='_blank'>Read More </a><br/>". trim($creation_date)."<br/>";
+					$html .= ". . .<a href='".trim($url)."' class='pearl_rss_read_more' target='_blank'>Read More </a>". trim($creation_date)."";
 				}
 				   
 				 $html.= "</p>";
@@ -528,8 +522,8 @@ class pearl_rss_feed_parser_class
 	
 }
 add_action('admin_menu',array($pearl_rss_feed_parser_class,'pearl_rss_feed_parser_menu'));
-//add_action('wp_print_styles', array($pearl_rss_feed_parser_class,'pearl_rss_feed_parser_css'));
 add_action('wp_head', array($pearl_rss_feed_parser_class,'pearl_rss_feed_parser_script'));
+add_action( 'wp_enqueue_scripts', array($pearl_rss_feed_parser_class,'safely_add_stylesheet') );
 add_shortcode('pearl_rss_feed_parser_display', array($pearl_rss_feed_parser_class,'pearl_rss_feed_parser'));
 register_activation_hook(__FILE__,array($pearl_rss_feed_parser_class,'pearl_rss_feed_parser_install'));
 register_deactivation_hook(__FILE__,array($pearl_rss_feed_parser_class,'pearl_rss_feed_parser_uninstall'));

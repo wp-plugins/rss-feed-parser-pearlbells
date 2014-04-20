@@ -17,8 +17,8 @@ Do you want to display RSS Feeds from other websites into your website?
 I have created this plugin to meet your needs. This help in getting your site automatically updated in line with the other website.
 This extension helps to read contents of RSS/news feeds and display them on your webpage. This plugin is very easy to install. You just need to insert the feed URLs of the relevant websites on the webpage where you want to display them after you install this plugin. This plugin support `.xml` and `.rss` feeds.
 
-Live Demo - <a href="http://pearlbells.co.uk/joomlaportfolio/5-feed-parser.html">Click here</a>
-Documentation - <a href="http://pearlbells.co.uk/joomlaportfolio/5-feed-parser.html">Click here</a>
+Live Demo - <a href="http://pearlbells.co.uk/extensions/rss-to-webpage">Click here</a>
+Documentation - <a href="http://pearlbells.co.uk/extensions/rss-to-webpage">Click here</a>
 
 It is possible to customise the display features to sync with the look and feel of your website. The customisation features include:
 
@@ -71,6 +71,9 @@ the directory of the stable readme.txt, so in this case, `/tags/4.3/screenshot-1
 2. This is the second screen shot
 
 == Changelog ==
+
+= 2.0 =
+* Second Release
 
 = 1.0 =
 * Initial Release

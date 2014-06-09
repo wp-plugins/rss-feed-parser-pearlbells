@@ -72,6 +72,9 @@ the directory of the stable readme.txt, so in this case, `/tags/4.3/screenshot-1
 
 == Changelog ==
 
+= 3.0 =
+* Changed the file structure
+
 = 2.0 =
 * Second Release
 

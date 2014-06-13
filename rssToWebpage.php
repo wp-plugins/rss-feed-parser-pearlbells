@@ -45,7 +45,7 @@ class rssToWebpage {
      }
   
      public function opt_page() {
-         new rssDisplayForm;
+         
          $this->postData();
      }
      
@@ -56,6 +56,8 @@ class rssToWebpage {
             $objOptions->update_options();
            
         }
+        
+        new rssDisplayForm;
     }
      
 }

@@ -52,7 +52,7 @@ class rssToWebpage {
      public function postData() {
          
         if($_REQUEST['submit']) {
-            $objOptions = new optionsValues;
+            $objOptions = new rssOptionsValues;
             $objOptions->update_options();
            
         }

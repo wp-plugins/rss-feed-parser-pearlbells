@@ -3,7 +3,7 @@ Contributors: lizeipe
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=W884YAWEDPA9U
 Tags: RSS Feed,News Feed,Feed Parser,News, Pearlbells
 Requires at least: 2.0.2
-Tested up to: 3.0
+Tested up to: 4.2.2
 Stable tag: 4.3
 
 This plugin helps to display RSS Feeds from other websites in your website. I have created this extension to read contents of RSS/news feeds and display them on your webpage.
@@ -17,8 +17,7 @@ Do you want to display RSS Feeds from other websites into your website?
 I have created this plugin to meet your needs. This help in getting your site automatically updated in line with the other website.
 This extension helps to read contents of RSS/news feeds and display them on your webpage. This plugin is very easy to install. You just need to insert the feed URLs of the relevant websites on the webpage where you want to display them after you install this plugin. This plugin support `.xml` and `.rss` feeds.
 
-Live Demo - <a href="http://pearlbells.co.uk/extensions/rss-to-webpage">Click here</a>
-Documentation - <a href="http://pearlbells.co.uk/extensions/rss-to-webpage">Click here</a>
+
 
 It is possible to customise the display features to sync with the look and feel of your website. The customisation features include:
 
@@ -72,6 +71,8 @@ the directory of the stable readme.txt, so in this case, `/tags/4.3/screenshot-1
 
 == Changelog ==
 
+= 4.0 =
+* Tested 4.2.2
 = 3.0 =
 * Changed the file structure
 

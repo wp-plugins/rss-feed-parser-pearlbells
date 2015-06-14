@@ -47,8 +47,7 @@ It is possible to customise the display features to sync with the look and feel 
 5. click `browse` and select the zip file.
 6. click 'install now'
 7. click `activate the plugin`
-8. Upload images to the webpage/post where you want to display RSS Feed.
-9. Go to the webpage where you want to display the RSS Feed/News Feed and enter `[pearl_rss_feed_parser_display rss_url= full_rss_url]`
+8. Go to the webpage where you want to display the RSS Feed/News Feed and enter `[pearl_rss_feed_parser_display rss_url= full_rss_url]`
 
 
 == Frequently Asked Questions ==

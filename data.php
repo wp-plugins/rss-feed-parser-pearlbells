@@ -8,19 +8,27 @@ class pearlData {
     
 	public function pearl_rss_feed_parser($atts, $content = null)
 	{		
-		extract( shortcode_atts( array(
+             shortcode_atts( array(
 		'rss_url' => 'http://static.cricinfo.com/rss/livescores.xml'		
-		), $atts ) );
+		), $atts ) ;
 		
-
-	    $rss_url = $rss_url;
-		
-		$ch = curl_init($rss_url);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($ch, CURLOPT_HEADER, 0);
+		try
+                {
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $atts['rss_url']);
+                curl_setopt($ch, CURLOPT_HEADER, false);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+                curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-type: text/xml'));
 		$data = curl_exec($ch);
 		curl_close($ch);
-		$doc = new SimpleXmlElement($data, LIBXML_NOCDATA);
+		$doc = new SimpleXmlElement($data);
+                }
+                catch(Exception $e)
+                {
+                    echo $e;exit;
+                }
 	   
 		if(isset($doc->channel))
 		{

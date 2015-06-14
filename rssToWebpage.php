@@ -54,7 +54,6 @@ class rssToWebpage {
         if($_REQUEST['submit']) {
             $objOptions = new rssOptionsValues;
             $objOptions->update_options();
-           
         }
         
         new rssDisplayForm;

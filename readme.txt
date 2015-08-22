@@ -37,6 +37,7 @@ It is possible to customise the display features to sync with the look and feel 
  - can set creation date font size and colour
  - can enable/disable pagination
 
+Live Demo - <a href="http://pearlbells.co.uk/rss-to-webpage/">Click here</a>
 
 == Installation ==
 

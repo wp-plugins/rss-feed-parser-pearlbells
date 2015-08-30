@@ -23,20 +23,27 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
-include_once 'form.php';
-include_once 'data.php';
-include_once 'optionsValues.php';
-include_once 'style.php';
+namespace rsspearlbells;
+include_once 'includes/form.php';
+include_once 'includes/data.php';
+include_once 'includes/optionsValues.php';
+include_once 'includes/style.php';
 
 class rssToWebpage {
     
+     private $objOptions;
      public function __construct() {
          add_action( 'admin_menu', array( $this, 'menu' ) );
-         $objOptions = new rssOptionsValues;
-         $objOptions->add_options();
+         $this->objOptions = new rssOptionsValues;
+         $this->objOptions->add_options();
          new pearlData;
          new rssStyleData;
+         register_deactivation_hook(__FILE__, array( $this, 'pearl_uninstall' ));
          
+     }
+     
+     public function pearl_uninstall() {
+         $this->objOptions->delete_options();
      }
      
      public function menu() {
@@ -52,8 +59,7 @@ class rssToWebpage {
      public function postData() {
          
         if($_REQUEST['submit']) {
-            $objOptions = new rssOptionsValues;
-            $objOptions->update_options();
+            $this->objOptions->update_options();
         }
         
         new rssDisplayForm;

@@ -1,3 +1,27 @@
 .pearl_rss .pearl_rss_section p {
     margin : 0;
 }
+.rss_pagination ul  {
+    padding : 0;
+    margin : 0;
+    text-align: center;
+}
+.rss_pagination li {
+    list-style: none;
+    display :inline-block;
+    width : 20px;
+    height : 20px;
+    cursor:pointer;
+}
+
+.rss_pagination ul::after 
+{
+    content: '';
+    clear : both;
+    display : block;
+    height : 0;
+}
+
+.pearl_min_height {
+    min-height: 460px;
+}

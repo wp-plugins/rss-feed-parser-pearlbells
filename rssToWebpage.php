@@ -1,11 +1,11 @@
 <?php
 /*
-Plugin Name: RSS Feed Parser Pearlbells
+Plugin Name: Display RSS Feed 
 Plugin URI: http://pearlbells.co.uk/
 Description:  RSS Feed Parser Pearlbells
 Version:  4.0
 Author:Pearlbells
-Author URI: http://pearlbells.co.uk/contact-page
+Author URI: http://www.pearlbells.co.uk/rss-to-webpage/
 License: GPL2
 */
 /*
@@ -29,17 +29,21 @@ include_once 'includes/data.php';
 include_once 'includes/optionsValues.php';
 include_once 'includes/style.php';
 
-class rssToWebpage {
+class rssToWebpage extends \WP_Widget {
     
      private $objOptions;
+     private $objData;
      public function __construct() {
          add_action( 'admin_menu', array( $this, 'menu' ) );
          $this->objOptions = new rssOptionsValues;
          $this->objOptions->add_options();
-         new pearlData;
+         $this->objData = new pearlData;
          new rssStyleData;
          register_deactivation_hook(__FILE__, array( $this, 'pearl_uninstall' ));
-         
+         $params = array( 
+                    'description' => 'Display RSS Feeds',
+                    'name' => 'RSS Feed');
+        parent::__construct('rssToWebpage','',$params);
      }
      
      public function pearl_uninstall() {
@@ -64,8 +68,40 @@ class rssToWebpage {
         
         new rssDisplayForm;
     }
+    
+    public function form($instance)
+    {
+        extract($instance);
+        ?>
+         <p>
+            <label for="<?php echo $this->get_field_id('title')?>"> Title : </label>
+            <input class="widefat" id="<?php echo $this->get_field_id('title');?>"
+                   name="<?php echo $this->get_field_name('title');?>"
+                   value="<?php if(isset($title)) echo esc_attr($title);?>"/>
+        </p>
+         <p>
+            <label for="<?php echo $this->get_field_id('rss_url')?>"> URL : </label>
+            <input class="widefat" type="text" id="<?php echo $this->get_field_id('rss_url');?>"
+                   name="<?php echo $this->get_field_name('rss_url');?>"
+                   value="<?php if(isset($rss_url)) echo esc_attr($rss_url);?>"/>
+        </p>
+       
+        <?php 
+    }
+    
+    public function widget($args , $instance)
+    {
+        extract($args);
+        extract($instance);
+        echo $before_title . $title . $after_title;  
+       
+        $pearl_rss_feed_display = $this->objData->pearl_rss_feed_parser($instance);
+        echo '<div class="pearl-rss-widget">'.$pearl_rss_feed_display.'</div>';
+    }
      
 }
-
-new rssToWebpage;
+add_action('widgets_init',function ()
+{
+    register_widget('rsspearlbells\rssToWebpage');
+});
 ?>

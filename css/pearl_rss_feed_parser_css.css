@@ -25,3 +25,9 @@
 .pearl_min_height {
     min-height: 460px;
 }
+.pearl_rss_left {
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  float: left;
+  padding : 2%;
+}

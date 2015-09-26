@@ -1,38 +1,48 @@
 === Plugin Name ===
 Contributors: lizeipe 
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=W884YAWEDPA9U
-Tags: RSS Feed,News Feed,Feed Parser,News, Pearlbells
+Tags: RSS Feed,News Feed,Feed Parser,Display RSS,RSS Reader
 Requires at least: 2.0.2
 Tested up to: 4.3
 Stable tag: 4.3
 
-This plugin helps to display RSS Feeds from other websites in your website. I have created this extension to read contents of RSS/news feeds and display them on your webpage.
+This plugin helps to display RSS Feeds from other websites in your website (post, pages, sidebars or footer). I have created this extension to read contents of RSS/news feeds and display them on your webpage.
 
 == Description ==
 
 Do you want to display RSS Feeds from other websites into your website?
 
-I have created this plugin to meet your needs. This help in getting your site automatically updated in line with the other website.
-This extension helps to read contents of RSS/news feeds and display them on your webpage. This plugin is very easy to install. You just need to insert the feed URLs of the relevant websites on the webpage where you want to display them after you install this plugin. This plugin support `.xml` and `.rss` feeds.
+I have created this plugin to meet your needs. This help in getting your site automatically 
+updated in line with the other website. This extension helps to read contents of RSS/news 
+feeds and display them on your webpage.You just need to insert the feed URLs of the relevant websites 
+on the webpage where you want to display them after you install this plugin. This plugin support .xml and .rss feeds.
+
+This plugin is very easy to install. Main steps include:
+
+ - Install and activate the plugin
+ - Enter the shortcode or widget where you want to display the feeds (post, page, sidebars or footer)
+ - Can display multiple rss feeds in a single page
+
+Please <a href='http://www.pearlbells.co.uk/rss-to-webpage/'>click here</a> to see detailed instructions and <a href='http://www.pearlbells.co.uk/install-rss-to-webpage/demo-rss-to-webpage/'>live demo</a>.
+
+Additional Features:
+
+ - Show / Hide heading
+ - Show / Hide title, creation date and description
+ - Show / Hide thumbnails
+ - Hyperlink / Unlink the title
+ - Enable/disable pagination
+ - Show / Hide ‘read more’ link
 
 It is possible to customise the display features to sync with the look and feel of your website. The customisation features include:
 
  - can set the height and width of News/RSS display
- - can set border colour, background colour and border width to thumbnail
- - can enable /disable heading 
+ - can set border colour, background colour and border width to the content area
  - can set heading font size and colour
- - can enable /disable title
- - can hyperlink/unlink the title
  - can set title font size and colour
- - can enable /disable description
  - can set description font size and colour
- - can enable /disable 'read more'
  - can set read more font size and colour
- - can enable /disable creation date
  - can set creation date font size and colour
- - can enable/disable pagination
-
-Live Demo - <a href="http://pearlbells.co.uk/rss-to-webpage/">Click here</a>
 
 == Installation ==
 
